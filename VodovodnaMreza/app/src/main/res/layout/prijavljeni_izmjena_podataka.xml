@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/omg"
+        android:layout_weight="0.06">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="54dp"
+            android:fontFamily="sans-serif"
+            android:text="Izmjena podataka"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="368dp"
+            android:layout_height="270dp"
+            android:layout_weight="0.06"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="63dp"
+            app:layout_constraintBottom_toTopOf="@+id/button7"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:id="@+id/relativeLayout2">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Broj kritičnih cijevi: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="31dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Nivo vodostaja: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textView1"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Datum izmjene: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Lokacija: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="25dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView3"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Naziv izmjene: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="@+id/editText3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginBottom="26dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Korisnik: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="263dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="97dp" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="233dp"
+                    android:layout_height="33dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText1"
+                    tools:layout_editor_absoluteX="127dp" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="233dp"
+                    android:layout_height="34dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText2"
+                    tools:layout_editor_absoluteX="127dp" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="230dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/editText6"
+                    tools:layout_editor_absoluteX="130dp" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="271dp"
+                    android:layout_height="33dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText3"
+                    tools:layout_editor_absoluteX="89dp" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="198dp"
+                    android:layout_height="39dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="8dp" />
+            </android.support.constraint.ConstraintLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="38dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif"
+            android:text="Spasi izmjene "
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="74dp"
+            android:layout_height="69dp"
+            app:srcCompat="@drawable/message"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="187dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/info"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="126dp"
+            app:layout_constraintRight_toRightOf="@+id/imageButton5" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/game"
+            android:layout_marginRight="62dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="0dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-5dp"
+            android:layout_marginTop="-1dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/out" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
