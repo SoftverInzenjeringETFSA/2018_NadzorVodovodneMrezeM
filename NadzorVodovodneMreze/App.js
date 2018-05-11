@@ -14,11 +14,11 @@ class maincomponent extends Component {
     		this.props.navigation.navigate('Second');  
  	}
 	render() {
-    		return(
-			<View style = { styles.container }>
-				<Button onPress = { this.onClickHelp } title = 'Help' style = { styles.button } />
-			</View>
-    		);
+		return(
+		<View style = { styles.container }> 
+			<Button onPress = { this.onClickHelp } title = 'Help' style = { styles.button } />
+		</View>
+		);
 	}
 }
 
