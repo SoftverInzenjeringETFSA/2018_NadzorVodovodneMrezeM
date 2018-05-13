@@ -6,6 +6,7 @@ import { StackNavigator } from 'react-navigation';
 import helpcomponent from './components/help-component/help-component';
 import styles from './AppStyles';
 import userinterfacecomponent from './components/user-interface-component/user-interface-component';
+import insertchangescomponent from './components/user-interface-component/insert-changes-component/insert-changes-component';
 
 class maincomponent extends Component {
 	constructor(props) {
@@ -25,7 +26,8 @@ class maincomponent extends Component {
 		<View style = { styles.container }> 
 			<Button onPress = { () => this.onPress('UserInterface') } title = 'User Interface ' style = { styles.button } />
 			<Button onPress = { () => this.onPress('Help') } title = 'Help' style = { styles.button } />
-		</View>
+			<Button onPress = { () => this.onPress('InsertChanges') } title = 'Insert Changes' style = { styles.button } />
+		</View> 
 		);
 	}
 }
@@ -33,5 +35,6 @@ class maincomponent extends Component {
 export default Project = StackNavigator({
 	Main: { screen: maincomponent },
 	Help: { screen: helpcomponent },
-	UserInterface: { screen: userinterfacecomponent }
+	UserInterface: { screen: userinterfacecomponent },
+	InsertChanges: {screen: insertchangescomponent }
 });
