@@ -1,8 +1,7 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
+var express = require('express'),
+  app = express(),
+  port = process.env.PORT || 3000;
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Database created!");
-  db.close();
-});
+app.listen(port);
+
+console.log('RESTful API server started on: ' + port);
