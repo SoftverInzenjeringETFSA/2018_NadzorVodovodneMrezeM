@@ -1,0 +1,9 @@
+{
+    "name": "Backend",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {},
+    "dependencies": {
+        "mongodb": "^3.1.0-beta4"
+    }
+}
