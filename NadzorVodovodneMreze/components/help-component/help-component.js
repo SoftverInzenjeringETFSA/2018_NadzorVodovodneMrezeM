@@ -1,35 +1,65 @@
 import React, {Component} from 'react';
-import {AppRegistry, Text, View} from 'react-native';
+import {StackNavigator} from 'react-navigation';
+import {AppRegistry, Text, View, Button} from 'react-native';
 import styles from './styles';
 
 export default class helpcomponent extends Component {
+    constructor(props) {
+		super(props);
+		this.onPress = this.onPress.bind(this);
+	}
 	static navigationOptions = {
 		title: 'Pomoc',
- 	};
+     };
+     onPress(stranica) {
+         console.log(stranica);
+		this.props.navigation.navigate(stranica);
+	} 
 	render() {
-    		return(
+    	return(
 			<View style = { styles.container }>
-				<Text style = { styles.TextStyle }>
-					Aplikacija koja ce se razviti sluzi za nadzor vodovodne mreze od strane radnika Vodovoda i Kanalizacije.{"\n"}
-                    {"\n"}
-                    Na stranici za prijavu biti ce omoguceno korisnicima da se prijave ili pristupe sistemu bez prijave.{"\n"}
-                    {"\n"}
-                    Neprijavljeni korisnici nece biti u mogucnosti pristupiti svim stranicama, odnosno nece im biti omogucene sljedece funkcionalnosti aplikacije:{"\n"}
-                    {"\n"}
-                    - Prikaz svih informacija o izmjenama;{"\n"}
-                    - Vrsenje izmjena na vodovodnoj mrezi;{"\n"}
-                    - Pregled poruka korisnika;{"\n"}
-                    - Prikaz detaljnih informacija o porukama korisnika.{"\n"}
-                    {"\n"}
-                    Svi korisnici biti ce u mogucnosti pristupiti sljedecim stranicama:{"\n"}
-                    {"\n"}
-                    - Pocetnoj stranici (na kojoj su prikazane informacije o vodovodnoj mrezi);{"\n"}
-                    - Stranici s listom izvrsenih izmjena (s osnovnim informacijama o istim);{"\n"}
-                    - Igrici (koja ukljucuje menu, pomoc, prikaz najboljih rezultata i sam ekran na kojem se igrica igra).
-				</Text>
-			</View>
-    		);
+				<Text style = { styles.text }>
+                    Aplikacija se može koristiti bez prijave ili uz prijavu koristeći korisničke podatke dodijeljene
+                    od strane Javnog Komunalnog Preduzeća Vodovod i Kanalizacija.{"\n"}
+                </Text>
+                <View style={styles.container}>
+                    <Button style={styles.button} title="Način korištenja aplikacije za goste" onPress={() => this.onPress('P2')}/>
+                </View>
+                <View style={styles.container}>
+                    <Button style={styles.button} title="Način korištenja aplikacije za prijavljene korisnike" onPress={() => this.props.navigation.navigate('P2')}/>
+                </View>
+                <View style={styles.container}>
+                    <Text style={styles.text}>
+                        Svi korisnici u mogućnosti su pristupiti igrici.
+                    </Text>
+                </View>
+                <View style={styles.container}>
+                    <Button style={styles.button} title="Način korištenja igrice" onPress={() => this.props.navigation.navigate('P2')}/>
+                </View>
+            </View>
+    	);
  	}
 }
 
+export class gost extends React.Component {
+    static navigationOptions = {
+		title: 'Gost',
+ 	};
+	render() {
+    	return(
+			<View style = { styles.container }>
+				<Text style = { styles.text }>
+                    Neki tekst{"\n"}
+                </Text>
+            </View>
+    	);
+ 	}
+}
+
+const App = StackNavigator({
+    P1: {screen: helpcomponent},
+    P2: {screen: gost}
+});
+
 AppRegistry.registerComponent('helpcomponent', () => helpcomponent);
+AppRegistry.registerComponent('gost', () => gost);
