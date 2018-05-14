@@ -1,12 +1,13 @@
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Button, Image, TouchableOpacity} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import helpcomponent from './components/help-component/help-component';
 import styles from './AppStyles';
 import userinterfacecomponent from './components/user-interface-component/user-interface-component';
 import insertchangescomponent from './components/user-interface-component/insert-changes-component/insert-changes-component';
+import gamecomponent from './components/game-component/game-component';
 
 class maincomponent extends Component {
 	constructor(props) {
@@ -23,11 +24,26 @@ class maincomponent extends Component {
 
 	render() {
 		return(
-		<View style = { styles.container }> 
-			<Button onPress = { () => this.onPress('UserInterface') } title = 'User Interface ' style = { styles.button } />
-			<Button onPress = { () => this.onPress('Help') } title = 'Help' style = { styles.button } />
-			<Button onPress = { () => this.onPress('InsertChanges') } title = 'Insert Changes' style = { styles.button } />
-		</View> 
+		 
+		<View style = { styles.container }>
+			<View style = { styles.meni }>
+				<TouchableOpacity onPress = { () => this.onPress('Game') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/game.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('UserInterface') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/loginn.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('InsertChanges') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/message.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('Help') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/help.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('Main') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/out.png')} />
+				</TouchableOpacity>
+			</View>
+		</View>
 		);
 	}
 }
@@ -36,5 +52,6 @@ export default Project = StackNavigator({
 	Main: { screen: maincomponent },
 	Help: { screen: helpcomponent },
 	UserInterface: { screen: userinterfacecomponent },
-	InsertChanges: {screen: insertchangescomponent }
+	InsertChanges: {screen: insertchangescomponent },
+	Game: {screen : gamecomponent}
 });

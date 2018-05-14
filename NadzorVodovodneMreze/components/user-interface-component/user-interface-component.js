@@ -4,7 +4,7 @@ import { AppRegistry, View, Text } from 'react-native';
 
 export default class userinterfacecomponent extends Component {
     static navigationOptions = {
-        title: 'Igrica'
+        title: 'Profil'
     }
     render() {
         return (
