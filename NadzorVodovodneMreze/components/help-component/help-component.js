@@ -97,12 +97,16 @@ export class gost extends React.Component {
 					</View>
 					<Text style = { styles.text }>
 						{"\n"}
-						Pristup ekranu sa svim porukama od strane autorizovanih korisnika moguć je 
+						Ukoliko korisnik želi pregledati listu izvršenih izmjena, u svakom trenutku to može učiniti 
 						pritiskom na sljedeće dugme:
                 	</Text>
 					<View style={styles.images}>
 						<Image source={{uri: 'https://i.imgur.com/w0zi5Jl.png'}} style={styles.image}/>
 					</View>
+					<Text style = { styles.text }>
+						{"\n"}
+						Korisniku je omogućen pregled samo naziva izmjena, no ne i njihovog sadržaja.
+                	</Text>
 					<Text style = { styles.text }>
 						{"\n"}
 						Ukoliko se korisnik odluči ulogovati, u svakom trenutku može se vratiti na početni ekran
@@ -182,7 +186,7 @@ export class ulogovani extends React.Component {
 						{"\n"}{"\n"}
 						Nakon unošenja svih podataka, izmjena će se izvršiti pritiskom na dugme 
 					<Text style={styles.textB}>
-						{" "}Spasi izmjene{" "}
+						{" "}Spasi izmjene
 					</Text>
 						.
 					</Text>
@@ -205,7 +209,7 @@ export class ulogovani extends React.Component {
 						pritiskom na sljedeće dugme:
                 	</Text>
 					<View style={styles.images}>
-						<Image source={{uri: 'https://i.imgur.com/w0zi5Jl.png'}} style={styles.image}/>
+						<Image source={{uri: 'https://i.imgur.com/v4AwL5B.png'}} style={styles.image}/>
 					</View>
 					<Text style = { styles.text }>
 						{"\n"}
@@ -226,7 +230,7 @@ export class ulogovani extends React.Component {
 						pritiskom na sljedeće dugme:
                 	</Text>
 					<View style={styles.images}>
-						<Image source={{uri: 'https://i.imgur.com/v4AwL5B.png'}} style={styles.image}/>
+						<Image source={{uri: 'https://i.imgur.com/w0zi5Jl.png'}} style={styles.image}/>
 					</View>
 					<Text style = { styles.text }>
 						{"\n"}
