@@ -1,8 +1,7 @@
 import targetIp from '../shared';
 
 class UserService {
-    userUrl = "http://" + targetIp +  ":3000/users";
-    userWithParamUrl = "http://" + targetIp + ":3000/users/";
+    userUrl = "http://" + targetIp +  ":3000/users/";
 
     async getAllUsers() {
 
@@ -30,14 +29,14 @@ class UserService {
     }
     async getUserById(id) {
 
-        let response = await fetch(this.userWithParamUrl + id);
+        let response = await fetch(this.userUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updateUser(id, username, password) {
 
-        let response = await fetch(this.userWithParamUrl + id, {
+        let response = await fetch(this.userUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -54,7 +53,7 @@ class UserService {
     }
     async deleteUser(id) {
 
-        let response = await fetch(this.userWithParamUrl + id, {
+        let response = await fetch(this.userUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',

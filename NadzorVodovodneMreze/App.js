@@ -14,7 +14,7 @@ class maincomponent extends Component {
 		this.onPress = this.onPress.bind(this);
 	}
 	static navigationOptions = 	{
-		title: 'Nadzor vodovodne mreže',
+		title: 'Nadzor vodovodne mreže'
 	};
 
 	onPress(txt) {

@@ -26,7 +26,18 @@ const styles = StyleSheet.create({
     },
     loaderText: {
         fontSize: 20
-    }
+    },
+    button : {
+		flex: 1
+	},
+	buttonsContainer: {
+		flex: 0.3,
+		marginTop: 40
+	},
+	buttonContainer: {
+		flex:1,
+		margin: 5
+	}
 });
 
 export default styles;

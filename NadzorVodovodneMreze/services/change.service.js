@@ -1,8 +1,7 @@
 import targetIp from '../shared';
 
 class ChangeService {
-    changeUrl = "http://" + targetIp + ":3000/changes";
-    changeWithParamUrl = "http://" + targetIp + ":3000/changes/";
+    changeUrl = "http://" + targetIp + ":3000/changes/";
 
     async getAllChanges() {
 
@@ -34,14 +33,14 @@ class ChangeService {
     }
     async getChangeById(id) {
 
-        let response = await fetch(this.changeWithParamUrl + id);
+        let response = await fetch(this.changeUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updateChange(id, author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(this.changeWithParamUrl + id, {
+        let response = await fetch(this.changeUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -62,7 +61,7 @@ class ChangeService {
     }
     async deleteChange(id) {
 
-        let response = await fetch(this.changeWithParamUrl + id, {
+        let response = await fetch(this.changeUrl + id, {
            method: 'DELETE',
            headers: {
             Accept: 'application/json',

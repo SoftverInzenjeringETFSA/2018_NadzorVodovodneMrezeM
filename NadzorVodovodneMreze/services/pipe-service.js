@@ -2,7 +2,6 @@ import targetIp from '../shared';
 
 class PipeService {
     pipeUrl = "http://" + targetIp + ":3000/pipes/";
-    pipeWithParamUrl = "http://" + targetIp + ":3000/pipes/";
  
     async getAllPipes() {
 
@@ -31,14 +30,14 @@ class PipeService {
     }
     async getPipeById(id) {
 
-        let response = fetch(this.pipeWithParamUrl + id);
+        let response = fetch(this.pipeUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updatePipe(id, location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(this.pipeWithParamUrl + id, {
+        let response = await fetch(this.pipeUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -56,7 +55,7 @@ class PipeService {
     }
     async deletePipe(id) {
 
-        let response = await fetch(this.pipeWithParamUrl + id, {
+        let response = await fetch(this.pipeUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',

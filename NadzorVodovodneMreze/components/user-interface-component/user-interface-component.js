@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import {StackNavigator} from 'react-navigation';
 import styles from './styles';
-import { AppRegistry, View, Text, ListView } from 'react-native';
+import { AppRegistry, View, Text, FlatList, Button } from 'react-native';
 
 import PipeService from '../../services/pipe-service';
+import insertchangescomponent from './insert-changes-component/insert-changes-component';
+import viewchangescomponent from './view-changes-component/view-changes-component';
+import viewmessagescomponent from './view-messages-component/view-messages-component';
 
-export default class userinterfacecomponent extends Component {
+export class userinterfacecomponent extends Component {
     data;
     pipeService = new PipeService();
     state = {
@@ -13,6 +17,7 @@ export default class userinterfacecomponent extends Component {
 
     constructor() {
         super();
+        this.onPress = this.onPress.bind(this);
         this.loadData().then(() => {
             this.setState({
                 isLoading: false
@@ -22,6 +27,10 @@ export default class userinterfacecomponent extends Component {
         });
     }
 
+    onPress(txt) {
+		this.props.navigation.navigate(txt);
+	} 
+
     async loadData() {
         let data = await this.pipeService.getAllPipes();
         console.log(data);
@@ -30,13 +39,7 @@ export default class userinterfacecomponent extends Component {
     static navigationOptions = {
         title: 'Podaci o vodovodnoj mreži'
     }
-    getInitialState() {
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        var data = Array.apply(null, {length: 20}).map(Number.call, Number);
-        return {
-            dataSource: ds.cloneWithRows(data),
-        };
-    }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -49,10 +52,29 @@ export default class userinterfacecomponent extends Component {
         }
         return (
             <View style = { styles.container }>
-                <Text style = { styles.loaderText }>test</Text>
-            </View>
+                <View style = { styles.buttonsContainer }>
+                    <View style = { styles.buttonContainer }>
+                        <Button onPress = { () => this.onPress('InsertChanges') } title = 'Unos izmjena' style = { styles.button } />
+                    </View>
+                    <View style = { styles.buttonContainer }>
+                        <Button onPress = { () => this.onPress('ViewChanges') } title = 'Izmjene na mreži' style = { styles.button } />
+                    </View>
+                    <View style = { styles.buttonContainer }>
+                        <Button onPress = { () => this.onPress('ViewMessages') } title = 'Poruke' style = { styles.button } />
+                    </View>
+                </View>
+            </View> 
         );
     }
 }
+
+export default Project = StackNavigator({
+    UserInterfaceComponent: { screen: userinterfacecomponent },
+    InsertChanges: {screen: insertchangescomponent},
+    ViewChanges: { screen: viewchangescomponent },
+    ViewMessages: { screen: viewmessagescomponent }
+}, {
+    headerMode: 'none'
+});
 
 AppRegistry.registerComponent('userinterfacecomponent', () => userinterfacecomponent);
