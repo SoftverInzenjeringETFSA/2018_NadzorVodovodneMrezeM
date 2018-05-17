@@ -8,9 +8,19 @@ const styles = StyleSheet.create({
 		justifyContent: 'center', 
 	},
 	button : {
+		flex: 1,
 		borderWidth: 1,
 		borderColor: 'black',
-		color: 'black'
+		color: 'black',
+		margin: 15
+	},
+	buttonContainer: {
+		flex:1,
+		margin: 5
+	},
+	buttonsContainer: {
+		flex: 0.3,
+		marginTop: 40
 	},
 	text : {
 		fontSize: 14,
