@@ -3,9 +3,10 @@ import styles from './styles';
 import {AppRegistry, View, Text, Button, StyleSheet} from 'react-native';
 import t from 'tcomb-form-native';
 import moment from 'moment';
+import ChangeService from '../../../services/change-service';
 
 const Form = t.form.Form;
-
+changeService = new ChangeService();
 
 const Level = t.refinement(t.Number, function(n) {
     return n >= 0 && n<=1;
@@ -17,7 +18,8 @@ const Level = t.refinement(t.Number, function(n) {
   const Pipes = t.refinement(t.Number, function(n) {
     return n >= 0;
   });
-  Level.getValidationErrorMessage = function() {
+
+  Pipes.getValidationErrorMessage = function() {
     return 'Number of pipes must be positive number';
   };
 
@@ -92,7 +94,15 @@ export default class insertchangescomponent extends Component {
     }
     handleSubmit = () => {
         const value = this._form.getValue();
-        console.log('value: ', value);
+        if(value !== null){
+          console.log('value: ', value);
+          changeService.createChange(value.user, 
+            value.ChangeName, 
+            value.DateChanged, 
+            value.Location, 
+            value.WaterLevel, 
+            value.CriticalPipes);
+        }
       };
     render() {
         return (
