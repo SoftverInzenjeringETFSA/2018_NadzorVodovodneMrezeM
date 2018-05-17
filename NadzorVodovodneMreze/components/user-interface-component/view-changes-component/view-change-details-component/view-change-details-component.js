@@ -24,7 +24,7 @@ export default class viewchangedetailscomponent extends Component {
 
     componentDidMount() {
         this.loadData().then(() => {
-            console.log(this.data);
+            console.log(this.activeChange);
             this.setState({
                 loading:false
             });
@@ -35,7 +35,7 @@ export default class viewchangedetailscomponent extends Component {
         this.activeChange = await this.changeService.getChangeById(this.props.navigation.state.params);
     }
 
-    render() {
+    render() { 
         if (this.state.loading) {
             return (
                 <View style={styles.loaderContainer}> 
