@@ -11,13 +11,15 @@ import viewmessagescomponent from './view-messages-component/view-messages-compo
 export class userinterfacecomponent extends Component {
     data;
     pipeService = new PipeService();
-    state = {
-        isLoading: true
-    };
 
-    constructor() {
-        super();
+    componentWillMount() {
+        this.setState({
+            isLoading: true
+        })
         this.onPress = this.onPress.bind(this);
+    }
+
+    componentDidMount() {
         this.loadData().then(() => {
             this.setState({
                 isLoading: false

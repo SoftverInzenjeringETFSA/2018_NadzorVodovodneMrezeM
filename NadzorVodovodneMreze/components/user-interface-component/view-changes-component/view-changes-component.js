@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './styles';
-import {AppRegistry, View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {AppRegistry, View, Text, FlatList, TouchableOpacity, List} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
 import ChangeService from '../../../services/change-service';
@@ -11,14 +11,14 @@ export class viewchangescomponent extends Component {
     data = [];
     changeService = new ChangeService();
 
-    constructor(props) {
-        super(props);
-        this.state = {
+    componentWillMount() {
+        this.setState({
             loading: true,
             data: [],
             error: null,
             refreshing: false,
-        };
+        });
+        this.onPress = this.onPress.bind(this);
     }
 
     componentDidMount() {
@@ -38,9 +38,8 @@ export class viewchangescomponent extends Component {
         title: 'Izmjene na mreži'
     }
 
-    clickItem(item) {
-        console.log(item);
-        this.props.navigation.navigate('ChangeDetailsComponent');
+    onPress(id) {
+        this.props.navigation.navigate('ChangeDetailsComponent', id);
     }
 
     render() {
@@ -58,19 +57,34 @@ export class viewchangescomponent extends Component {
                 <FlatList
                     data={this.data}
                     extraData={this.state}
-                    renderItem={({item}) => (
-                        <TouchableOpacity onPress={this.clickItem(item._id)}> 
+                    renderItem={(item) => (
+                        <TouchableOpacity onPress={() => this.onPress(item._id)}> 
                             <View style = { styles.listItemContainer } >
                                 <Text style = {styles.listItemText} >{item.change_name}</Text>
                             </View>
                         </TouchableOpacity>                                                
                     )}
                     keyExtractor={(item) => item._id}
+                    ItemSeparatorComponent={this.renderSeparator}
+                    containerStyle={{ borderBottomWidth: 0 }}
                 /> 
             </View>
         );
     }
 }
+
+renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "86%",
+          backgroundColor: "#CED0CE",
+          marginLeft: "14%"
+        }}
+      />
+    );
+};
 
 export default Project = StackNavigator({
     ViewChangesComponent: { screen: viewchangescomponent },

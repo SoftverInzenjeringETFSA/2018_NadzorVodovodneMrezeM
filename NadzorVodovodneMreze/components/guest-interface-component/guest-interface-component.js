@@ -16,13 +16,17 @@ export default class guestinterfacecomponent extends Component {
         this.onPress = this.onPress.bind(this);
         
 	}
+	componentDidMount() {
+		this.loadData().then(
+			result => console.log(result)
+		).catch(err => console.log(err));
+	}
 	static navigationOptions = 	{
 		title: 'Gost',
     };
     async loadData() {
         let data = await this.changeService.getAllChanges();
-        console.log(data);
-        brojPoruka = data.length;
+        return data;
     }
 
 	onPress(txt) {
