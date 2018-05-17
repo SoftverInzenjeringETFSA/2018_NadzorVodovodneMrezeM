@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Button, TouchableOpacity, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import helpcomponent from './components/help-component/help-component';
@@ -24,16 +24,16 @@ class maincomponent extends Component {
 	render() {
 		return(
 		<View style = { styles.container }>
-			<View style = { styles.buttonsContainer }>
-				<View style = { styles.buttonContainer }>
-					<Button onPress = { () => this.onPress('UserInterface') } title = 'Prijava korisnika' style = { styles.button } />
-				</View>
-				<View style = { styles.buttonContainer }>
-					<Button onPress = { () => this.onPress('GuestInterface') } title = 'Prijava gosta' style = { styles.button } />
-				</View>
-				<View style = { styles.buttonContainer }>
-					<Button onPress = { () => this.onPress('Help') } title = 'Help' style = { styles.button } />
-				</View> 
+			<View style = { styles.meni }>
+				<TouchableOpacity onPress = { () => this.onPress('UserInterface') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/loginn.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('GuestInterface') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/info.png')} />
+				</TouchableOpacity>
+				<TouchableOpacity onPress = { () => this.onPress('Help') }>
+				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/help.png')} />
+				</TouchableOpacity> 
 			</View>
 		</View> 
 		);
