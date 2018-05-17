@@ -1,15 +1,17 @@
-module.exports = function changeService() {
-    var changeUrl = "localhost:3000/changes";
-    var changeWithParamUrl = "localhost:3000/changes/";
+class ChangeService {
+    changeUrl = "localhost:3000/changes";
+    changeWithParamUrl = "localhost:3000/changes/";
 
-    return function getAllChanges() {
+    async getAllChanges() {
 
-        return fetch(changeUrl);
+        let response = await fetch(changeUrl);
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function createChange(author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
+    }
+    async createChange(author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
 
-        return fetch(changeUrl, {
+        let response = await fetch(changeUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -23,17 +25,21 @@ module.exports = function changeService() {
                 water_level: waterLevel,
                 critical_pipe_count: criticalPipeCount
             })
-        })
+        });
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function getChangeById(id) {
+    }
+    async getChangeById(id) {
 
-        return fetch(changeWithParamUrl + id);
+        let response = await fetch(changeWithParamUrl + id);
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function updateChange(id, author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
+    }
+    async updateChange(id, author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
 
-        return fetch(changeWithParamUrl + id, {
+        let response = await fetch(changeWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -48,17 +54,22 @@ module.exports = function changeService() {
                 critical_pipe_count: criticalPipeCount
             })
         });
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function deleteChange(id) {
+    }
+    async deleteChange(id) {
 
-        return fetch(changeWithParamUrl + id, {
+        let response = await fetch(changeWithParamUrl + id, {
            method: 'DELETE',
            headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
             }
         });
+        let responseJson = await response.json();
+        return responseJson;
 
     }
-}();
+};
+module.exports = ChangeService;

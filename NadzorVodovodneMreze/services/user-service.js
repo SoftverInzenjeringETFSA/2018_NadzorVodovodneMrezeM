@@ -1,15 +1,17 @@
-module.exports = function userService() {
-    var userUrl = "localhost:3000/users";
-    var userWithParamUrl = "localhost:3000/users/";
+class UserService {
+    userUrl = "localhost:3000/users";
+    userWithParamUrl = "localhost:3000/users/";
 
-    return function getAllUsers() {
+    async getAllUsers() {
 
-        return fetch(userUrl);
+        let response = await fetch(userUrl);
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function createUser(username, password) {
+    }
+    async createUser(username, password) {
 
-        return fetch(userUrl, {
+        let response = await fetch(userUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -19,17 +21,21 @@ module.exports = function userService() {
                 username: username,
                 password: password
             })
-        })
+        });
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function getUserById(id) {
+    }
+    async getUserById(id) {
 
-        return fetch(userWithParamUrl + id);
+        let response = await fetch(userWithParamUrl + id);
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function updateUser(id, username, password) {
+    }
+    async updateUser(id, username, password) {
 
-        return fetch(userWithParamUrl + id, {
+        let response = await fetch(userWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -40,18 +46,23 @@ module.exports = function userService() {
                 password: password
             })
         });
+        let responseJson = await response.json();
+        return responseJson;
 
-    }, 
-    function deleteUser(id) {
+    }
+    async deleteUser(id) {
 
-        return fetch(userWithParamUrl + id, {
+        let response = await fetch(userWithParamUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             }
         });
+        let responseJson = await response.json();
+        return responseJson;
         
     }
 
-}();
+};
+module.exports = UserService;

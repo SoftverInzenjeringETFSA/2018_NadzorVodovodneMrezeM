@@ -1,15 +1,17 @@
-module.exports = function pipeService() {
-    var pipeUrl = "localhost:3000/pipes";
-    var pipeWithParamUrl = "localhost:3000/pipes/";
+class PipeService {
+    pipeUrl = "localhost:3000/pipes";
+    pipeWithParamUrl = "localhost:3000/pipes/";
+ 
+    async getAllPipes() {
 
-    return function getAllPipes() {
+        let response = await fetch(pipeUrl);
+        let responseJson = await response.json();
+        return responseJson;
 
-        return fetch(pipeUrl);
+    }
+    async createPipe(location, waterLevel, criticalPipeCount) {
 
-    },
-    function createPipe(location, waterLevel, criticalPipeCount) {
-
-        return fetch(pipeUrl, {
+        let response = await fetch(pipeUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -21,16 +23,20 @@ module.exports = function pipeService() {
                 critical_pipe_count: criticalPipeCount
             })
         });
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function getPipeById(id) {
+    }
+    async getPipeById(id) {
 
-        return fetch(pipeWithParamUrl + id);
+        let response = fetch(pipeWithParamUrl + id);
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function updatePipe(id, location, waterLevel, criticalPipeCount) {
+    }
+    async updatePipe(id, location, waterLevel, criticalPipeCount) {
 
-        return fetch(pipeWithParamUrl + id, {
+        let response = await fetch(pipeWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -42,17 +48,22 @@ module.exports = function pipeService() {
                 critical_pipe_count: criticalPipeCount
             })
         });
+        let responseJson = await response.json();
+        return responseJson;
 
-    },
-    function deletePipe(id) {
+    }
+    async deletePipe(id) {
 
-        return fetch(pipeWithParamUrl + id, {
+        let response = await fetch(pipeWithParamUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             }
-        })
+        });
+        let responseJson = await response.json();
+        return responseJson;
 
     }
-}();
+};
+module.exports = PipeService;
