@@ -4,14 +4,14 @@ class ChangeService {
 
     async getAllChanges() {
 
-        let response = await fetch(changeUrl);
+        let response = await fetch(this.changeUrl);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async createChange(author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(changeUrl, {
+        let response = await fetch(this.changeUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -32,14 +32,14 @@ class ChangeService {
     }
     async getChangeById(id) {
 
-        let response = await fetch(changeWithParamUrl + id);
+        let response = await fetch(this.changeWithParamUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updateChange(id, author, changeName, changeDate, location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(changeWithParamUrl + id, {
+        let response = await fetch(this.changeWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -60,7 +60,7 @@ class ChangeService {
     }
     async deleteChange(id) {
 
-        let response = await fetch(changeWithParamUrl + id, {
+        let response = await fetch(this.changeWithParamUrl + id, {
            method: 'DELETE',
            headers: {
             Accept: 'application/json',

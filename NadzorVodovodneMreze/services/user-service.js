@@ -4,14 +4,14 @@ class UserService {
 
     async getAllUsers() {
 
-        let response = await fetch(userUrl);
+        let response = await fetch(this.userUrl);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async createUser(username, password) {
 
-        let response = await fetch(userUrl, {
+        let response = await fetch(this.userUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -28,14 +28,14 @@ class UserService {
     }
     async getUserById(id) {
 
-        let response = await fetch(userWithParamUrl + id);
+        let response = await fetch(this.userWithParamUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updateUser(id, username, password) {
 
-        let response = await fetch(userWithParamUrl + id, {
+        let response = await fetch(this.userWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -52,7 +52,7 @@ class UserService {
     }
     async deleteUser(id) {
 
-        let response = await fetch(userWithParamUrl + id, {
+        let response = await fetch(this.userWithParamUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',

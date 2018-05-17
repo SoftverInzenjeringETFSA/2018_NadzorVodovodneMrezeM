@@ -7,10 +7,17 @@ import PipeService from '../../services/pipe-service';
 export default class userinterfacecomponent extends Component {
     data;
     pipeService = new PipeService();
+    state = {
+        isLoading: true
+    };
 
     constructor() {
         super();
-        this.loadData();
+        this.loadData().then(() => {
+            this.setState({
+                isLoading: false
+            });
+        });
     }
 
     async loadData() {
@@ -29,6 +36,9 @@ export default class userinterfacecomponent extends Component {
         };
     }
     render() {
+        if (this.state.isLoading) {
+            return <View><Text>Loading...</Text></View>;
+        }
         return (
             <View style = { styles.container }>
                 <ListView contentContainerStyle={styles.list}

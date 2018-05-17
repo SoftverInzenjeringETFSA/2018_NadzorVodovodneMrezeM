@@ -4,14 +4,14 @@ class PipeService {
  
     async getAllPipes() {
 
-        let response = await fetch(pipeUrl);
+        let response = await fetch(this.pipeUrl);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async createPipe(location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(pipeUrl, {
+        let response = await fetch(this.pipeUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -29,14 +29,14 @@ class PipeService {
     }
     async getPipeById(id) {
 
-        let response = fetch(pipeWithParamUrl + id);
+        let response = fetch(this.pipeWithParamUrl + id);
         let responseJson = await response.json();
         return responseJson;
 
     }
     async updatePipe(id, location, waterLevel, criticalPipeCount) {
 
-        let response = await fetch(pipeWithParamUrl + id, {
+        let response = await fetch(this.pipeWithParamUrl + id, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
@@ -54,7 +54,7 @@ class PipeService {
     }
     async deletePipe(id) {
 
-        let response = await fetch(pipeWithParamUrl + id, {
+        let response = await fetch(this.pipeWithParamUrl + id, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
