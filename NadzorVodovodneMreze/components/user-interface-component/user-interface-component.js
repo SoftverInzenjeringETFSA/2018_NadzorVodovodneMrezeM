@@ -55,7 +55,7 @@ export class userinterfacecomponent extends Component {
                 <View style = { styles.buttonsContainer }>
                     <View style = { styles.buttonContainer }>
                         <Button onPress = { () => this.onPress('InsertChanges') } title = 'Unos izmjena' style = { styles.button } />
-                    </View>
+                    </View> 
                     <View style = { styles.buttonContainer }>
                         <Button onPress = { () => this.onPress('ViewChanges') } title = 'Izmjene na mreži' style = { styles.button } />
                     </View>
