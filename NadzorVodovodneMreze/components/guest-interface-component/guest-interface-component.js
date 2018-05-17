@@ -45,7 +45,7 @@ export default class guestinterfacecomponent extends Component {
                 <Text style = { styles.textStyle }>
                     Broj novih informacija:
                     {this.brojPoruka}
-                </Text>
+                </Text> 
             </View>
 
             <View style = {styles.textOpis}>

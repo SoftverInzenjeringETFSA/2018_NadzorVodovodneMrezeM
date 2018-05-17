@@ -38,7 +38,8 @@ export class viewchangescomponent extends Component {
         title: 'Izmjene na mreži'
     }
 
-    clickItem() {
+    clickItem(item) {
+        console.log(item);
         this.props.navigation.navigate('ChangeDetailsComponent');
     }
 
@@ -58,7 +59,7 @@ export class viewchangescomponent extends Component {
                     data={this.data}
                     extraData={this.state}
                     renderItem={({item}) => (
-                        <TouchableOpacity onPress={() => this.clickItem()}> 
+                        <TouchableOpacity onPress={this.clickItem(item._id)}> 
                             <View style = { styles.listItemContainer } >
                                 <Text style = {styles.listItemText} >{item.change_name}</Text>
                             </View>

@@ -6,10 +6,13 @@ export default class viewchangedetailscomponent extends Component {
     static navigationOptions = {
         title: 'Detalji izmjene'
     }
+
+    static activeChange; 
+
     render() {
         return (
             <View>
-                <Text>component works </Text>
+                <Text>aa</Text>
             </View>
         );
     }
