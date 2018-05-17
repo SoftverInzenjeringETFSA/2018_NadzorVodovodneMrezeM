@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Button, Image, TouchableOpacity} from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -8,6 +7,7 @@ import styles from './AppStyles';
 import userinterfacecomponent from './components/user-interface-component/user-interface-component';
 import insertchangescomponent from './components/user-interface-component/insert-changes-component/insert-changes-component';
 import gamecomponent from './components/game-component/game-component';
+import guestinterfacecomponent from './components/guest-interface-component/guest-interface-component';
 
 class maincomponent extends Component {
 	constructor(props) {
@@ -36,7 +36,7 @@ class maincomponent extends Component {
 				<TouchableOpacity onPress = { () => this.onPress('InsertChanges') }>
 				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/message.png')} />
 				</TouchableOpacity>
-				<TouchableOpacity onPress = { () => this.onPress('Help') }>
+				<TouchableOpacity onPress = { () => this.onPress('Guest') }>
 				<Image style={styles.menuImageStyle}  source={require('./resursi/slike/help.png')} />
 				</TouchableOpacity>
 				<TouchableOpacity onPress = { () => this.onPress('Main') }>
@@ -53,5 +53,6 @@ export default Project = StackNavigator({
 	Help: { screen: helpcomponent },
 	UserInterface: { screen: userinterfacecomponent },
 	InsertChanges: {screen: insertchangescomponent },
-	Game: {screen : gamecomponent}
+	Game: {screen : gamecomponent },
+	Guest: { screen: guestinterfacecomponent }
 });

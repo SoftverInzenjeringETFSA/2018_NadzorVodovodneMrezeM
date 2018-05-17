@@ -6,6 +6,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
+	button : {
+		flex: 1,
+		borderWidth: 1,
+		borderColor: 'black',
+		color: 'black',
+		margin: 15
+	},
 	meni: {
 		backgroundColor: '#e4e4e4',
 		flexDirection: 'row',
@@ -13,10 +20,13 @@ const styles = StyleSheet.create({
 		height : 40,
 		alignSelf: 'flex-end'
 	},
-	button : {
-		borderWidth: 1,
-		borderColor: 'black',
-		color: 'black'
+	buttonContainer: {
+		flex:1,
+		margin: 5
+	},
+	buttonsContainer: {
+		flex: 0.3,
+		marginTop: 40
 	},
 	text : {
 		fontSize: 14,
