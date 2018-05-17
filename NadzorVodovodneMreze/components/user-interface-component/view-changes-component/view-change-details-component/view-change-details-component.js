@@ -4,12 +4,12 @@ import {AppRegistry, View, Text} from 'react-native';
 
 export default class viewchangedetailscomponent extends Component {
     static navigationOptions = {
-        title: 'Igrica'
+        title: 'Detalji izmjene'
     }
     render() {
         return (
             <View>
-                <Text> component works </Text>
+                <Text>component works </Text>
             </View>
         );
     }
