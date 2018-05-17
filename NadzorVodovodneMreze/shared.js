@@ -1,4 +1,4 @@
 
-var targetIp = "192.168.0.19";
+var targetIp = "";
 
 module.exports = targetIp;
