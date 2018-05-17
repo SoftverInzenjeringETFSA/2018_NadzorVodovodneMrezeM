@@ -57,7 +57,7 @@ export class viewchangescomponent extends Component {
             <View style={styles.container}> 
                 <FlatList 
                     data={this.data}
-                    extraData={this.data.length}
+                    extraData={this.state}
                     renderItem={(item) => (
                         <TouchableOpacity onPress={() => this.onPress(item._id)}> 
                             <View style = { styles.listItemContainer } >
