@@ -1,6 +1,8 @@
+import targetIp from '../shared';
+
 class UserService {
-    userUrl = "localhost:3000/users";
-    userWithParamUrl = "localhost:3000/users/";
+    userUrl = "http://" + targetIp +  ":3000/users";
+    userWithParamUrl = "http://" + targetIp + ":3000/users/";
 
     async getAllUsers() {
 

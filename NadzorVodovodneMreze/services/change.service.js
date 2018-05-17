@@ -1,6 +1,8 @@
+import targetIp from '../shared';
+
 class ChangeService {
-    changeUrl = "localhost:3000/changes";
-    changeWithParamUrl = "localhost:3000/changes/";
+    changeUrl = "http://" + targetIp + ":3000/changes";
+    changeWithParamUrl = "http://" + targetIp + ":3000/changes/";
 
     async getAllChanges() {
 

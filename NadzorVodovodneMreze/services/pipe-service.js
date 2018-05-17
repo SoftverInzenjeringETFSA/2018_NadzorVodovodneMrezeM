@@ -1,6 +1,8 @@
+import targetIp from '../shared';
+
 class PipeService {
-    pipeUrl = "localhost:3000/pipes";
-    pipeWithParamUrl = "localhost:3000/pipes/";
+    pipeUrl = "http://" + targetIp + ":3000/pipes/";
+    pipeWithParamUrl = "http://" + targetIp + ":3000/pipes/";
  
     async getAllPipes() {
 

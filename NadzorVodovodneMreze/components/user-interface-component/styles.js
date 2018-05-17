@@ -18,6 +18,14 @@ const styles = StyleSheet.create({
 		margin:15,
 		borderWidth: 0,
 		padding: 5
+    },
+    loaderContainer: {
+        marginTop: 70,
+        marginLeft: 30,
+        flex: 0.5
+    },
+    loaderText: {
+        fontSize: 20
     }
 });
 

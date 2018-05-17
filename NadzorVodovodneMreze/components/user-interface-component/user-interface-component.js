@@ -17,6 +17,8 @@ export default class userinterfacecomponent extends Component {
             this.setState({
                 isLoading: false
             });
+        }).catch(err => {
+            console.log(err);
         });
     }
 
@@ -37,14 +39,17 @@ export default class userinterfacecomponent extends Component {
     }
     render() {
         if (this.state.isLoading) {
-            return <View><Text>Loading...</Text></View>;
+            return (
+                <View style={styles.loaderContainer}> 
+                    <Text style={styles.loaderText}>
+                        Loading...
+                    </Text>
+                </View>
+            );
         }
         return (
             <View style = { styles.container }>
-                <ListView contentContainerStyle={styles.list}
-                dataSource={this.state.dataSource}
-                renderRow={(rowData) => <Text style={styles.item}>{rowData}</Text>}
-                />
+                <Text style = { styles.loaderText }>test</Text>
             </View>
         );
     }
