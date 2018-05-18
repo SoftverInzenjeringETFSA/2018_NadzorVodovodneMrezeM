@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import styles from './styles';
-import {AppRegistry, View, Text, Button, StyleSheet} from 'react-native';
+import {AppRegistry, View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import t from 'tcomb-form-native';
 import moment from 'moment';
-import ChangeService from '../../../services/change-service';
+import PushNotification from 'react-native-push-notification';
 
 const Form = t.form.Form;
-changeService = new ChangeService();
-
 const Level = t.refinement(t.Number, function(n) {
     return n >= 0 && n<=1;
   });
@@ -18,8 +16,7 @@ const Level = t.refinement(t.Number, function(n) {
   const Pipes = t.refinement(t.Number, function(n) {
     return n >= 0;
   });
-
-  Pipes.getValidationErrorMessage = function() {
+  Level.getValidationErrorMessage = function() {
     return 'Number of pipes must be positive number';
   };
 
@@ -94,22 +91,36 @@ export default class insertchangescomponent extends Component {
     }
     handleSubmit = () => {
         const value = this._form.getValue();
-        if(value !== null){
-          console.log('value: ', value);
-          changeService.createChange(value.user, 
-            value.ChangeName, 
-            value.DateChanged, 
-            value.Location, 
-            value.WaterLevel, 
-            value.CriticalPipes);
+        console.log('value: ', value);
+        if (value.user == 'user') { //korisnik nije ulogovan
+          PushNotification.localNotification({
+            title: value.ChangeName,
+            message: "...",
+          });
         }
-      };
+        else {
+          PushNotification.localNotification({
+            title: value.ChangeName,
+            message: "Lokacija: " + value.Location + "\nNivo vodostaja: "+ 
+            value.WaterLevel + "\nBroj kritičnih cijevi: " + value.CriticalPipes,
+          });
+        }
+      }
+    componentDidMount () {
+      PushNotification.configure ({
+        onNotification: function(notification) {
+          console.log( 'NOTIFICATION:', notification );
+        },
+      });
+    }
     render() {
         return (
-            <View style={styles.container}>
-        <Form ref={c => (this._form = c)} type={InputData} options={options} />
-        <Button title="Sign Up!" onPress={this.handleSubmit} />
-      </View>
+            <ScrollView>
+              <View style={styles.container}>
+                <Form ref={c => (this._form = c)} type={InputData} options={options} />
+                <Button title="Dodaj izmjenu" onPress={this.handleSubmit} />
+              </View>
+           </ScrollView>
         );
     }
 }
