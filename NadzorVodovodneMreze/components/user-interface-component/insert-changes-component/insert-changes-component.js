@@ -4,6 +4,7 @@ import {AppRegistry, View, Text, Button, StyleSheet, ScrollView} from 'react-nat
 import t from 'tcomb-form-native';
 import moment from 'moment';
 import ChangeService from '../../../services/change-service';
+import PushNotification from 'react-native-push-notification';
 
 const Form = t.form.Form;
 changeService = new ChangeService();
@@ -103,6 +104,19 @@ export default class insertchangescomponent extends Component {
             value.Location, 
             value.WaterLevel, 
             value.CriticalPipes);
+        }
+        if (value.user == 'user') { //korisnik je ulogovan - to je jedini user
+          PushNotification.localNotification({
+            title: value.ChangeName,
+            message: "Lokacija: " + value.Location + "\nNivo vodostaja: "+ 
+            value.WaterLevel + "\nBroj kritičnih cijevi: " + value.CriticalPipes,
+          });
+        }
+        else {
+          PushNotification.localNotification({
+            title: value.ChangeName,
+            message: "...",
+          });
         }
       };
     render() {
