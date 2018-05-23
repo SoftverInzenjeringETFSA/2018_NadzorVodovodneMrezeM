@@ -23,7 +23,13 @@ const styles = StyleSheet.create({
         fontSize: 15
     },
     listItemContainer: {
-        flex: 1
+        flex: 1,
+        height: '30%',
+        backgroundColor: 'blue'
+    },
+    list: {
+        width: '100%',
+        backgroundColor: 'red'
     }
 });
 

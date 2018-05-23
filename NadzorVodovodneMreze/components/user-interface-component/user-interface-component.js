@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StackNavigator} from 'react-navigation';
 import styles from './styles';
-import { AppRegistry, View, Text, FlatList, Button } from 'react-native';
+import { AppRegistry, View, Text, FlatList, Button, ActivityIndicator } from 'react-native';
 
 import PipeService from '../../services/pipe-service';
 import insertchangescomponent from './insert-changes-component/insert-changes-component';
@@ -46,9 +46,7 @@ export class userinterfacecomponent extends Component {
         if (this.state.isLoading) {
             return (
                 <View style={styles.loaderContainer}> 
-                    <Text style={styles.loaderText}>
-                        Loading...
-                    </Text>
+                    <ActivityIndicator size="large" />
                 </View>
             );
         }

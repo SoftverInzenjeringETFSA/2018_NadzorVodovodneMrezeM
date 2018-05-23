@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './styles';
-import {AppRegistry, View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {AppRegistry, View, Text, FlatList, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
 import ChangeService from '../../../services/change-service';
@@ -24,52 +24,55 @@ export class viewchangescomponent extends Component {
 
     componentDidMount() {
         this.loadData().then(() => {
-            console.log(this.data);
             this.setState({
-                loading: false
+                loading: false,
+                data: this.data
             });
-        });
+        }).catch(err => console.log(err));
     }
 
     async loadData() {
         this.data = await this.changeService.getAllChanges();
-    }    
+    }
+       
+    onPress(id) {
+        this.props.navigation.navigate('ChangeDetailsComponent', id);
+    }
 
     static navigationOptions = {
         title: 'Izmjene na mreži'
     }
 
-    onPress(id) {
-        this.props.navigation.navigate('ChangeDetailsComponent', id);
-    }
-
     render() {
         if (this.state.loading) {
             return ( 
-                <View style={styles.loaderContainer}> 
-                    <Text style={styles.loaderText}>
-                        Loading...
-                    </Text>
+                <View style={styles.container}> 
+                    <ActivityIndicator size="large" />
                 </View>
             );
         }
+        console.log(this.data);
         return (
             <View style={styles.container}> 
-                <FlatList 
+                <FlatList  
                     data={this.data}
                     extraData={this.state}
-                    renderItem={(item) => (
-                        <TouchableOpacity onPress={() => this.onPress(item._id)}> 
-                            <View style = { styles.listItemContainer } >
-                                <Text style = {styles.listItemText} >{item.change_name}</Text> 
-                            </View>
-                        </TouchableOpacity>                                                
-                    )}
+                    renderItem={(displayItem) => {
+                        console.log(displayItem);
+                        return (
+                        <TouchableOpacity onPress={() => this.onPress(this.displayItem._id)}
+                            style={ styles.listItemContainer }> 
+                            <Text style = {styles.listItemText} >
+                                {this.displayItem.change_name}
+                            </Text> 
+                        </TouchableOpacity>);
+                    }}
                     keyExtractor={(item) => item._id}
-                    containerStyle={{ borderBottomWidth: 0 }}
+                    style={styles.list}
                 />  
             </View>
         );
+    
     }
 }
 

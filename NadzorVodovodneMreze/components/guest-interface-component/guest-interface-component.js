@@ -11,7 +11,7 @@ import helpcomponent from '../../components/help-component/help-component';
 export default class guestinterfacecomponent extends Component {
     brojPoruka = 0;
     changeService = new ChangeService();
-	constructor(props) {
+	constructor(props) { 
 		super(props);
         this.onPress = this.onPress.bind(this);
         
