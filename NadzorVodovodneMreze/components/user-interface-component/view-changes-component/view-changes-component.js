@@ -3,6 +3,8 @@ import styles from './styles';
 import {AppRegistry, View, Text, FlatList, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
+import Moment from 'moment';
+
 import ChangeService from '../../../services/change-service';
 import viewchangedetailscomponent from './view-change-details-component/view-change-details-component';
 
@@ -78,7 +80,7 @@ export class viewchangescomponent extends Component {
                                 {item && item.author}
                             </Text> 
                             <Text style = {styles.listItemText} >
-                                {item && item.change_date}
+                                {item && Moment(item.change_date).format('D/M/Y HH:mm:ss')}
                             </Text> 
                         </TouchableOpacity>);
                     }}

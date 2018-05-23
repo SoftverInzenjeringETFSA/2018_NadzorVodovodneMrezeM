@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import styles from './styles';
 import {AppRegistry, View, Text, ActivityIndicator} from 'react-native';
 
+import Moment from 'moment';
+
 import ChangeService from '../../../../services/change-service';
 
 export default class viewchangedetailscomponent extends Component {
@@ -47,7 +49,7 @@ export default class viewchangedetailscomponent extends Component {
             <View style={styles.container}>
                 <Text>Autor izmjene: {this.activeChange.author}</Text>
                 <Text>Naziv izmjene: {this.activeChange.change_name}</Text>
-                <Text>Datum izmjene: {this.activeChange.change_date}</Text>
+                <Text>Datum izmjene: {Moment(this.activeChange.change_date).format('D/M/Y HH:mm:ss')}</Text>
                 <Text>Lokacija: {this.activeChange.location}</Text>
                 <Text>Vodostaj: {this.activeChange.water_level}</Text>
                 <Text>Broj kritičnih cijevi: {this.activeChange.critical_pipe_count}</Text>

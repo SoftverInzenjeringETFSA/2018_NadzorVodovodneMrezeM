@@ -2,15 +2,20 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'flex-start',
-	},
+        flex: 1,
+		backgroundColor: '#fff',
+		//alignItems: 'center',
+		justifyContent: 'center', 
+		margin:15,
+		borderWidth: 0,
+		padding: 5
+    },
 	meni: {
-		backgroundColor: '#e4e4e4',
+		flex:1,
+		backgroundColor: '#fff',
 		flexDirection: 'row',
 		alignItems: 'flex-start',
-		height : 40,
+		//height : 0.2,
 		alignSelf: 'flex-end'
 	},
 	button : {
