@@ -78,19 +78,11 @@ class maincomponent extends Component {
 
 		return(
         <View style = { styles.container }>
-        <View style = { styles.meni }>
-          <TouchableOpacity onPress = { () => this.onPress('UserInterface') }>
-          <Image style={styles.menuImageStyle}  source={require('./resursi/slike/loginn.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress = { () => this.onPress('GuestInterface') }>
-          <Image style={styles.menuImageStyle}  source={require('./resursi/slike/info.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress = { () => this.onPress('Help') }>
-          <Image style={styles.menuImageStyle}  source={require('./resursi/slike/help.png')} />
-          </TouchableOpacity> 
-        </View>
           <Form ref={c => (this._form = c)} type={InputData} options={options} />
           <Button title="Sign in" onPress={this.handleSubmit} />
+            <View style = { styles.buttonsContainer}>
+              <Button title="Log in as guest" onPress = { () => this.onPress('GuestInterface') } />
+            </View>
         </View> 
       
 		);
