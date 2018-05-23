@@ -18,18 +18,19 @@ const styles = StyleSheet.create({
     loaderText: {
         fontSize: 20
     },
+    listItemTitle: {
+        flex: 1,
+        fontSize: 20
+    },
     listItemText: {
         flex: 1,
         fontSize: 15
     },
     listItemContainer: {
-        flex: 1,
-        height: '30%',
-        backgroundColor: 'blue'
+        flex: 1
     },
     list: {
-        width: '100%',
-        backgroundColor: 'red'
+        width: '100%'
     }
 });
 

@@ -43,9 +43,9 @@ export class userinterfacecomponent extends Component {
     }
 
     render() {
-        if (this.state.isLoading) {
-            return (
-                <View style={styles.loaderContainer}> 
+        if (this.state.loading) {
+            return ( 
+                <View style={styles.container}> 
                     <ActivityIndicator size="large" />
                 </View>
             );

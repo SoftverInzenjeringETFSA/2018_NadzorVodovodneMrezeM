@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './styles';
-import {AppRegistry, View, Text} from 'react-native';
+import {AppRegistry, View, Text, ActivityIndicator} from 'react-native';
 
 import ChangeService from '../../../../services/change-service';
 
@@ -37,11 +37,9 @@ export default class viewchangedetailscomponent extends Component {
 
     render() { 
         if (this.state.loading) {
-            return (
-                <View style={styles.loaderContainer}> 
-                    <Text style={styles.loaderText}>
-                        Loading...
-                    </Text>
+            return ( 
+                <View style={styles.container}> 
+                    <ActivityIndicator size="large" />
                 </View>
             );
         }

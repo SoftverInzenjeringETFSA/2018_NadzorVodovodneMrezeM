@@ -43,6 +43,15 @@ export class viewchangescomponent extends Component {
         title: 'Izmjene na mreži'
     }
 
+    renderSeparator = () => (
+        <View
+          style={{
+            backgroundColor: 'grey',
+            height: 0.5,
+          }}
+        />
+      );
+
     render() {
         if (this.state.loading) {
             return ( 
@@ -51,25 +60,32 @@ export class viewchangescomponent extends Component {
                 </View>
             );
         }
-        console.log(this.data);
+        console.log(this.state.data);
         return (
             <View style={styles.container}> 
                 <FlatList  
-                    data={this.data}
+                    data={this.state.data}
                     extraData={this.state}
-                    renderItem={(displayItem) => {
-                        console.log(displayItem);
+                    renderItem={({item}) => {
+                        console.log(item);
                         return (
-                        <TouchableOpacity onPress={() => this.onPress(this.displayItem._id)}
+                        <TouchableOpacity onPress={() => this.onPress(item._id)}
                             style={ styles.listItemContainer }> 
+                            <Text style = {styles.listItemTitle} >
+                                {item && item.change_name}
+                            </Text> 
                             <Text style = {styles.listItemText} >
-                                {this.displayItem.change_name}
+                                {item && item.author}
+                            </Text> 
+                            <Text style = {styles.listItemText} >
+                                {item && item.change_date}
                             </Text> 
                         </TouchableOpacity>);
                     }}
                     keyExtractor={(item) => item._id}
                     style={styles.list}
-                />  
+                    ItemSeparatorComponent={this.renderSeparator}
+                />
             </View>
         );
     
