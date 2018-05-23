@@ -3,9 +3,6 @@ import styles from './styles';
 import {AppRegistry, View, Text} from 'react-native';
 
 export default class viewmessagescomponent extends Component {
-    static navigationOptions = {
-        title: 'Igrica'
-    }
     render() {
         return (
             <View>

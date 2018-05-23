@@ -41,10 +41,6 @@ export class viewchangescomponent extends Component {
         this.props.navigation.navigate('ChangeDetailsComponent', id);
     }
 
-    static navigationOptions = {
-        title: 'Izmjene na mreži'
-    }
-
     renderSeparator = () => (
         <View
           style={{
@@ -94,11 +90,6 @@ export class viewchangescomponent extends Component {
     }
 }
 
-export default Project = StackNavigator({
-    ViewChangesComponent: { screen: viewchangescomponent },
-    ChangeDetailsComponent: { screen: viewchangedetailscomponent }
-},{
-    headerMode: 'none'
-});
+export default viewchangescomponent;
 
 AppRegistry.registerComponent('viewchangescomponent', () => viewchangescomponent);

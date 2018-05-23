@@ -11,10 +11,6 @@ export default class viewchangedetailscomponent extends Component {
     activeChange;
     changeService = new ChangeService();
 
-    static navigationOptions = {
-        title: 'Detalji izmjene'
-    }
-
     componentWillMount() {
         this.setState({
             loading: true,

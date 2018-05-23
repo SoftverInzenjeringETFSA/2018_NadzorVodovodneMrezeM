@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {StackNavigator} from 'react-navigation';
 import styles from './styles';
 import { AppRegistry, View, Text, FlatList, Button, ActivityIndicator } from 'react-native';
-
+import {Actions} from 'react-native-router-flux';
 import PipeService from '../../services/pipe-service';
 import insertchangescomponent from './insert-changes-component/insert-changes-component';
 import viewchangescomponent from './view-changes-component/view-changes-component';
@@ -16,7 +15,6 @@ export class userinterfacecomponent extends Component {
         this.setState({
             isLoading: true
         })
-        this.onPress = this.onPress.bind(this);
     }
 
     componentDidMount() {
@@ -28,20 +26,10 @@ export class userinterfacecomponent extends Component {
             console.log(err);
         });
     }
-
-    onPress(txt) {
-		this.props.navigation.navigate(txt);
-	} 
-
     async loadData() {
         let data = await this.pipeService.getAllPipes();
         console.log(data);
     }
-
-    static navigationOptions = {
-        title: 'Podaci o vodovodnoj mreži'
-    }
-
     render() {
         if (this.state.loading) {
             return ( 
@@ -54,13 +42,13 @@ export class userinterfacecomponent extends Component {
             <View style = { styles.container }>
                 <View style = { styles.buttonsContainer }>
                     <View style = { styles.buttonContainer }>
-                        <Button onPress = { () => this.onPress('InsertChanges') } title = 'Unos izmjena' style = { styles.button } />
+                        <Button onPress = { () => Actions.InsertC() } title = 'Unos izmjena' style = { styles.button } />
                     </View> 
                     <View style = { styles.buttonContainer }>
-                        <Button onPress = { () => this.onPress('ViewChanges') } title = 'Izmjene na mreži' style = { styles.button } />
+                        <Button onPress = { () => Actions.ViewC() } title = 'Izmjene na mreži' style = { styles.button } />
                     </View>
                     <View style = { styles.buttonContainer }>
-                        <Button onPress = { () => this.onPress('ViewMessages') } title = 'Poruke' style = { styles.button } />
+                        <Button onPress = { () => Actions.ViewM() } title = 'Poruke' style = { styles.button } />
                     </View>
                 </View>
             </View> 
@@ -68,13 +56,6 @@ export class userinterfacecomponent extends Component {
     }
 }
 
-export default Project = StackNavigator({
-    UserInterfaceComponent: { screen: userinterfacecomponent },
-    InsertChanges: {screen: insertchangescomponent},
-    ViewChanges: { screen: viewchangescomponent },
-    ViewMessages: { screen: viewmessagescomponent }
-}, {
-    headerMode: 'none'
-});
+export default userinterfacecomponent;
 
 AppRegistry.registerComponent('userinterfacecomponent', () => userinterfacecomponent);

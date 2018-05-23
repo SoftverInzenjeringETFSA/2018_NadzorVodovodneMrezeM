@@ -107,7 +107,7 @@ export default class insertchangescomponent extends Component {
       };
     render() {
         return (
-          <ScrollView style={styles.container2}>
+          <ScrollView contentContainerStyle={styles.container2}>
             <View style={styles.container}>
         <Form ref={c => (this._form = c)} type={InputData} options={options} />
         <Button title="Sign Up" onPress={this.handleSubmit} />
