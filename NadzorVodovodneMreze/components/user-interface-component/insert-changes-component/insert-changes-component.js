@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './styles';
-import {AppRegistry, View, Text, Button, StyleSheet} from 'react-native';
+import {AppRegistry, View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import t from 'tcomb-form-native';
 import moment from 'moment';
 import ChangeService from '../../../services/change-service';
@@ -12,7 +12,7 @@ const Level = t.refinement(t.Number, function(n) {
     return n >= 0 && n<=1;
   });
   Level.getValidationErrorMessage = function() {
-    return 'Bad water level';
+    return 'Loš vodostaj!';
   };
 
   const Pipes = t.refinement(t.Number, function(n) {
@@ -20,8 +20,9 @@ const Level = t.refinement(t.Number, function(n) {
   });
 
   Pipes.getValidationErrorMessage = function() {
-    return 'Number of pipes must be positive number';
+    return 'Broj cijevi mora biti pozitivan broj!';
   };
+
 
 const InputData = t.struct({
     user: t.String,
@@ -36,21 +37,19 @@ const InputData = t.struct({
     ...Form.stylesheet,
     formGroup: {
       normal: {
-        marginBottom: 10,
+        marginBottom: 5
       },
     },
     controlLabel: {
       normal: {
         color: 'blue',
-        fontSize: 18,
-        marginBottom: 7,
+        fontSize: 15,
         fontWeight: '600',
       },
       // the style applied when a validation error occours
       error: {
         color: 'red',
-        fontSize: 18,
-        marginBottom: 7,
+        fontSize: 15,
         fontWeight: '600',
       },
     },
@@ -73,9 +72,11 @@ const InputData = t.struct({
       },
       ChangeName: {
         label: 'Naziv izmjene:',
+        error: 'Morate unijeti naziv promjene!'
       },
       Location: {
-        label: 'Lokacija:'
+        label: 'Lokacija:',
+        error: 'Morate unijeti lokaciju!'
       },
       WaterLevel: {
           label: 'Nivo vodostaja:'
@@ -106,10 +107,12 @@ export default class insertchangescomponent extends Component {
       };
     render() {
         return (
+          <ScrollView style={styles.container2}>
             <View style={styles.container}>
         <Form ref={c => (this._form = c)} type={InputData} options={options} />
-        <Button title="Sign Up!" onPress={this.handleSubmit} />
+        <Button title="Sign Up" onPress={this.handleSubmit} />
       </View>
+      </ScrollView>
         );
     }
 }
