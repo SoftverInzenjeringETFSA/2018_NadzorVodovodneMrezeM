@@ -11,4 +11,4 @@ var PipeSchema = new Schema({
     critical_pipe_count: Number
 });
 
-module.exports = mongoose.model('Pipe', PipeSchema);
+module.exports = mongoose.model('PipeOld', PipeSchema);

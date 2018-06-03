@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		textAlign: 'left',
 		margin : 5
-	}
+	},
+	mapStyle : {
+		height : 340,
+		width : 340
+    }
 });
 
 export default styles;
